@@ -10,7 +10,7 @@ function clearAuthAndRedirectToWelcome(expired = false) {
     localStorage.removeItem(key);
   }
   const q = expired ? "?expired=1" : "";
-  window.location.href = `/welcome${q}`;
+  window.location.href = `/login${q}`;
 }
 
 function redirectToRoleDashboardOrWelcome() {
