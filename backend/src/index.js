@@ -12,21 +12,10 @@ import { errorHandler } from "./middleware/errorHandler.js";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const CORS_ORIGIN = process.env.CORS_ORIGIN || "http://localhost:5173";
-const allowedOrigins = [
-  CORS_ORIGIN,
-  "http://localhost:5173",
-  "http://localhost:5174",
-  "http://localhost:3000",
-  "https://availabilitytrackerfrontend.vercel.app",
-];
 
 app.use(
   cors({
-    origin: (origin, cb) => {
-      if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
-      cb(new Error(`CORS blocked: ${origin}`));
-    },
+    origin: true,
     credentials: true,
   })
 );
